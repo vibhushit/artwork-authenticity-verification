@@ -1,0 +1,203 @@
+---
+Organizations:
+  - &art-com
+      Name: art-com
+      ID: art-com
+      MSPDir: keyfiles/ordererOrganizations/art.com/msp
+      Policies:
+        Readers:
+          Type: Signature
+          Rule: "OR('art-com.member')"
+        Writers:
+          Type: Signature
+          Rule: "OR('art-com.member')"
+        Admins:
+          Type: Signature
+          Rule: "OR('art-com.admin')"
+  - &artist-art-com
+      Name: artist-art-com
+      ID: artist-art-com
+      MSPDir: keyfiles/peerOrganizations/artist.art.com/msp
+      Policies:
+        Readers:
+          Type: Signature
+          Rule: "OR('artist-art-com.admin', 'artist-art-com.peer', 'artist-art-com.client')"
+        Writers:
+          Type: Signature
+          Rule: "OR('artist-art-com.admin', 'artist-art-com.client')"
+        Admins:
+          Type: Signature
+          Rule: "OR('artist-art-com.admin')"
+        Endorsement:
+          Type: Signature
+          Rule: "OR('artist-art-com.peer')"
+
+      AnchorPeers:
+      - Host: 192.168.221.156
+        Port: 7004
+  - &expert-art-com
+      Name: expert-art-com
+      ID: expert-art-com
+      MSPDir: keyfiles/peerOrganizations/expert.art.com/msp
+      Policies:
+        Readers:
+          Type: Signature
+          Rule: "OR('expert-art-com.admin', 'expert-art-com.peer', 'expert-art-com.client')"
+        Writers:
+          Type: Signature
+          Rule: "OR('expert-art-com.admin', 'expert-art-com.client')"
+        Admins:
+          Type: Signature
+          Rule: "OR('expert-art-com.admin')"
+        Endorsement:
+          Type: Signature
+          Rule: "OR('expert-art-com.peer')"
+
+      AnchorPeers:
+      - Host: 192.168.221.156
+        Port: 7003
+  - &gallery-art-com
+      Name: gallery-art-com
+      ID: gallery-art-com
+      MSPDir: keyfiles/peerOrganizations/gallery.art.com/msp
+      Policies:
+        Readers:
+          Type: Signature
+          Rule: "OR('gallery-art-com.admin', 'gallery-art-com.peer', 'gallery-art-com.client')"
+        Writers:
+          Type: Signature
+          Rule: "OR('gallery-art-com.admin', 'gallery-art-com.client')"
+        Admins:
+          Type: Signature
+          Rule: "OR('gallery-art-com.admin')"
+        Endorsement:
+          Type: Signature
+          Rule: "OR('gallery-art-com.peer')"
+
+      AnchorPeers:
+      - Host: 192.168.221.156
+        Port: 7005
+
+Capabilities:
+  Channel: &ChannelCapabilities
+    V2_0: true
+
+  Orderer: &OrdererCapabilities
+    V2_0: true
+
+  Application: &ApplicationCapabilities
+    V2_0: true
+
+Application: &ApplicationDefaults
+  Organizations:
+  Policies:
+    Readers:
+      Type: ImplicitMeta
+      Rule: "ANY Readers"
+    Writers:
+      Type: ImplicitMeta
+      Rule: "ANY Writers"
+    Admins:
+      Type: ImplicitMeta
+      Rule: "MAJORITY Admins"
+    LifecycleEndorsement:
+      Type: ImplicitMeta
+      Rule: "MAJORITY Endorsement"
+    Endorsement:
+      Type: ImplicitMeta
+      Rule: "MAJORITY Endorsement"
+
+  Capabilities:
+    <<: *ApplicationCapabilities
+
+Orderer: &OrdererDefaults
+  OrdererType: etcdraft
+
+  BatchTimeout: 2s
+
+  BatchSize:
+    MaxMessageCount: 10
+    AbsoluteMaxBytes: 99 MB
+    PreferredMaxBytes: 512 KB
+
+  Addresses:
+  - 192.168.221.156:7009
+  - 192.168.221.156:7010
+  - 192.168.221.156:7011
+  EtcdRaft:
+    Consenters:
+    - Host: 192.168.221.156
+      Port: 7009
+      ClientTLSCert: keyfiles/ordererOrganizations/art.com/orderers/orderer1.art.com/tls/server.crt
+      ServerTLSCert: keyfiles/ordererOrganizations/art.com/orderers/orderer1.art.com/tls/server.crt
+    - Host: 192.168.221.156
+      Port: 7010
+      ClientTLSCert: keyfiles/ordererOrganizations/art.com/orderers/orderer2.art.com/tls/server.crt
+      ServerTLSCert: keyfiles/ordererOrganizations/art.com/orderers/orderer2.art.com/tls/server.crt
+    - Host: 192.168.221.156
+      Port: 7011
+      ClientTLSCert: keyfiles/ordererOrganizations/art.com/orderers/orderer3.art.com/tls/server.crt
+      ServerTLSCert: keyfiles/ordererOrganizations/art.com/orderers/orderer3.art.com/tls/server.crt
+  Organizations:
+  Policies:
+    Readers:
+      Type: ImplicitMeta
+      Rule: "ANY Readers"
+    Writers:
+      Type: ImplicitMeta
+      Rule: "ANY Writers"
+    Admins:
+      Type: ImplicitMeta
+      Rule: "MAJORITY Admins"
+    BlockValidation:
+      Type: ImplicitMeta
+      Rule: "ANY Writers"
+
+Channel: &ChannelDefaults
+  Policies:
+    Readers:
+      Type: ImplicitMeta
+      Rule: "ANY Readers"
+    Writers:
+      Type: ImplicitMeta
+      Rule: "ANY Writers"
+    Admins:
+      Type: ImplicitMeta
+      Rule: "MAJORITY Admins"
+
+  Capabilities:
+    <<: *ChannelCapabilities
+
+Profiles:
+  OrgChannel:
+    Consortium: SampleConsortium
+    <<: *ChannelDefaults
+    Application:
+      <<: *ApplicationDefaults
+      Organizations:
+      - *artist-art-com
+      - *expert-art-com
+      - *gallery-art-com
+      Capabilities:
+        <<: *ApplicationCapabilities
+
+  OrdererGenesis:
+    <<: *ChannelDefaults
+    Capabilities:
+      <<: *ChannelCapabilities
+    Orderer:
+      <<: *OrdererDefaults
+      Organizations:
+      - *art-com
+      Capabilities:
+        <<: *OrdererCapabilities
+    Application:
+      <<: *ApplicationDefaults
+      Organizations:
+      - <<: *art-com
+    Consortiums:
+      SampleConsortium:
+        Organizations:
+        - *artist-art-com
+        - *expert-art-com
+        - *gallery-art-com

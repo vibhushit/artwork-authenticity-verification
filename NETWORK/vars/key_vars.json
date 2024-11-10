@@ -1,0 +1,128 @@
+{
+  "Admin@art.com": {
+    "key": "Admin@art.com",
+    "org": "art.com",
+    "path": "/home/vars/keyfiles/ordererOrganizations/art.com/users/Admin@art.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/ordererOrganizations/art.com/users/Admin@art.com/msp/keystore/priv_sk",
+    "type": "users"
+  },
+  "Admin@artist.art.com": {
+    "key": "Admin@artist.art.com",
+    "org": "artist.art.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/artist.art.com/users/Admin@artist.art.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/artist.art.com/users/Admin@artist.art.com/msp/keystore/priv_sk",
+    "type": "users"
+  },
+  "Admin@expert.art.com": {
+    "key": "Admin@expert.art.com",
+    "org": "expert.art.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/expert.art.com/users/Admin@expert.art.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/expert.art.com/users/Admin@expert.art.com/msp/keystore/priv_sk",
+    "type": "users"
+  },
+  "Admin@gallery.art.com": {
+    "key": "Admin@gallery.art.com",
+    "org": "gallery.art.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/gallery.art.com/users/Admin@gallery.art.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/gallery.art.com/users/Admin@gallery.art.com/msp/keystore/priv_sk",
+    "type": "users"
+  },
+  "art.com": {
+    "key": "art.com",
+    "org": "art.com",
+    "path": "/home/vars/keyfiles/ordererOrganizations/art.com/ca/priv_sk",
+    "pkey": "keyfiles/ordererOrganizations/art.com/ca/priv_sk",
+    "type": "ca"
+  },
+  "art.com.tlsca": {
+    "key": "art.com",
+    "org": "art.com",
+    "path": "/home/vars/keyfiles/ordererOrganizations/art.com/tlsca/priv_sk",
+    "pkey": "keyfiles/ordererOrganizations/art.com/tlsca/priv_sk",
+    "type": "tlsca"
+  },
+  "artist.art.com": {
+    "key": "artist.art.com",
+    "org": "artist.art.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/artist.art.com/ca/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/artist.art.com/ca/priv_sk",
+    "type": "ca"
+  },
+  "artist.art.com.tlsca": {
+    "key": "artist.art.com",
+    "org": "artist.art.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/artist.art.com/tlsca/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/artist.art.com/tlsca/priv_sk",
+    "type": "tlsca"
+  },
+  "expert.art.com": {
+    "key": "expert.art.com",
+    "org": "expert.art.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/expert.art.com/ca/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/expert.art.com/ca/priv_sk",
+    "type": "ca"
+  },
+  "expert.art.com.tlsca": {
+    "key": "expert.art.com",
+    "org": "expert.art.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/expert.art.com/tlsca/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/expert.art.com/tlsca/priv_sk",
+    "type": "tlsca"
+  },
+  "gallery.art.com": {
+    "key": "gallery.art.com",
+    "org": "gallery.art.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/gallery.art.com/ca/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/gallery.art.com/ca/priv_sk",
+    "type": "ca"
+  },
+  "gallery.art.com.tlsca": {
+    "key": "gallery.art.com",
+    "org": "gallery.art.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/gallery.art.com/tlsca/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/gallery.art.com/tlsca/priv_sk",
+    "type": "tlsca"
+  },
+  "orderer1.art.com": {
+    "key": "orderer1.art.com",
+    "org": "art.com",
+    "path": "/home/vars/keyfiles/ordererOrganizations/art.com/orderers/orderer1.art.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/ordererOrganizations/art.com/orderers/orderer1.art.com/msp/keystore/priv_sk",
+    "type": "orderers"
+  },
+  "orderer2.art.com": {
+    "key": "orderer2.art.com",
+    "org": "art.com",
+    "path": "/home/vars/keyfiles/ordererOrganizations/art.com/orderers/orderer2.art.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/ordererOrganizations/art.com/orderers/orderer2.art.com/msp/keystore/priv_sk",
+    "type": "orderers"
+  },
+  "orderer3.art.com": {
+    "key": "orderer3.art.com",
+    "org": "art.com",
+    "path": "/home/vars/keyfiles/ordererOrganizations/art.com/orderers/orderer3.art.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/ordererOrganizations/art.com/orderers/orderer3.art.com/msp/keystore/priv_sk",
+    "type": "orderers"
+  },
+  "peer1.artist.art.com": {
+    "key": "peer1.artist.art.com",
+    "org": "artist.art.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/artist.art.com/peers/peer1.artist.art.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/artist.art.com/peers/peer1.artist.art.com/msp/keystore/priv_sk",
+    "type": "peers"
+  },
+  "peer1.expert.art.com": {
+    "key": "peer1.expert.art.com",
+    "org": "expert.art.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/expert.art.com/peers/peer1.expert.art.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/expert.art.com/peers/peer1.expert.art.com/msp/keystore/priv_sk",
+    "type": "peers"
+  },
+  "peer1.gallery.art.com": {
+    "key": "peer1.gallery.art.com",
+    "org": "gallery.art.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/gallery.art.com/peers/peer1.gallery.art.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/gallery.art.com/peers/peer1.gallery.art.com/msp/keystore/priv_sk",
+    "type": "peers"
+  }
+}

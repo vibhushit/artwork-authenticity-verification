@@ -1,0 +1,44 @@
+[
+    {
+        "transactionName": "artGalleryExists",
+        "transactionLabel": "A test artGalleryExists transaction",
+        "arguments": [
+            "001"
+        ],
+        "transientData": {}
+    },
+    {
+        "transactionName": "createArtGallery",
+        "transactionLabel": "A test createArtGallery transaction",
+        "arguments": [
+            "001",
+            "some value"
+        ],
+        "transientData": {}
+    },
+    {
+        "transactionName": "readArtGallery",
+        "transactionLabel": "A test readArtGallery transaction",
+        "arguments": [
+            "001"
+        ],
+        "transientData": {}
+    },
+    {
+        "transactionName": "updateArtGallery",
+        "transactionLabel": "A test updateArtGallery transaction",
+        "arguments": [
+            "001",
+            "some other value"
+        ],
+        "transientData": {}
+    },
+    {
+        "transactionName": "deleteArtGallery",
+        "transactionLabel": "A test deleteArtGallery transaction",
+        "arguments": [
+            "001"
+        ],
+        "transientData": {}
+    }
+]

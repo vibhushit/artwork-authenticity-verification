@@ -1,0 +1,58 @@
+---
+OrdererOrgs:
+  - Name: art.com
+    Domain: art.com
+    Specs:
+      - Hostname: orderer1
+        SANS:
+          - 192.168.221.156
+      - Hostname: orderer2
+        SANS:
+          - 192.168.221.156
+      - Hostname: orderer3
+        SANS:
+          - 192.168.221.156
+
+PeerOrgs:
+  - Name: artist.art.com
+    Domain: artist.art.com
+    EnableNodeOUs: true
+    CA:
+      Hostname: ca1
+      CommonName: ca1.artist.art.com
+      Country: US
+      Province: North Carolina
+      Locality: Raleigh
+    Specs:
+      - Hostname: peer1
+        CommonName: peer1.artist.art.com
+        SANS:
+          - 192.168.221.156
+  - Name: expert.art.com
+    Domain: expert.art.com
+    EnableNodeOUs: true
+    CA:
+      Hostname: ca1
+      CommonName: ca1.expert.art.com
+      Country: US
+      Province: North Carolina
+      Locality: Raleigh
+    Specs:
+      - Hostname: peer1
+        CommonName: peer1.expert.art.com
+        SANS:
+          - 192.168.221.156
+  - Name: gallery.art.com
+    Domain: gallery.art.com
+    EnableNodeOUs: true
+    CA:
+      Hostname: ca1
+      CommonName: ca1.gallery.art.com
+      Country: US
+      Province: North Carolina
+      Locality: Raleigh
+    Specs:
+      - Hostname: peer1
+        CommonName: peer1.gallery.art.com
+        SANS:
+          - 192.168.221.156

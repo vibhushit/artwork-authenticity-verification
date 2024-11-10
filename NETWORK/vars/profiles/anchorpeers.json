@@ -1,0 +1,35 @@
+{
+  "artist-art-com": {
+    "AnchorPeers": {
+      "mod_policy": "Admins",
+      "value": {
+        "anchor_peers": [
+           { "host": "192.168.221.156", "port": "7004" }
+        ]
+      },
+      "version": "0"
+    }
+  },
+  "expert-art-com": {
+    "AnchorPeers": {
+      "mod_policy": "Admins",
+      "value": {
+        "anchor_peers": [
+           { "host": "192.168.221.156", "port": "7003" }
+        ]
+      },
+      "version": "0"
+    }
+  },
+  "gallery-art-com": {
+    "AnchorPeers": {
+      "mod_policy": "Admins",
+      "value": {
+        "anchor_peers": [
+           { "host": "192.168.221.156", "port": "7005" }
+        ]
+      },
+      "version": "0"
+    }
+  }
+}

@@ -1,0 +1,222 @@
+{
+  "name": "b83b8e7037_net",
+  "x-comment-0": "ROOTPATH should be set to the absolute path of crypto material starting directory",
+  "x-comment-1": "for example: export ROOTPATH=/home/ubuntu/mywork/vars/keyfiles",
+  "x-type": "hlfv-2.2.2",
+  "version": "1.0.0",
+  "client": {
+    "organization": "gallery.art.com",
+    "cryptoconfig": {
+      "path": "${ROOTPATH}"
+    },
+    "connection": {
+      "timeout": {
+        "peer": { "endorser": "300", "eventHub": "300", "eventReg": "300"},
+        "orderer": "300"
+      }
+    }
+  },
+  "channels": {
+    "artchannel": {
+      "orderers": [
+        "orderer1.art.com",
+        "orderer2.art.com",
+        "orderer3.art.com"
+      ],
+      "peers": {
+        "peer1.expert.art.com": {
+          "endorsingPeer": true, "chaincodeQuery": true, "eventSource": true
+        },
+        "peer1.artist.art.com": {
+          "endorsingPeer": true, "chaincodeQuery": true, "eventSource": true
+        },
+        "peer1.gallery.art.com": {
+          "endorsingPeer": true, "chaincodeQuery": true, "eventSource": true
+        }
+      }
+    }
+  },
+  "organizations": {
+    "art.com": {
+      "mspid": "art-com",
+      "cryptoPath": "ordererOrganizations/art.com/users/{username}@art.com/msp",
+      "orderers": [
+        "orderer1.art.com",
+        "orderer2.art.com",
+        "orderer3.art.com"
+      ],
+      "certificateAuthorities": [
+      ]
+    },
+    "artist.art.com": {
+      "mspid": "artist-art-com",
+      "cryptoPath": "peerOrganizations/artist.art.com/users/{username}@artist.art.com/msp",
+      "peers": [
+        "peer1.artist.art.com"
+      ],
+      "certificateAuthorities": [
+       "ca1.artist.art.com"
+      ]
+    },
+    "expert.art.com": {
+      "mspid": "expert-art-com",
+      "cryptoPath": "peerOrganizations/expert.art.com/users/{username}@expert.art.com/msp",
+      "peers": [
+        "peer1.expert.art.com"
+      ],
+      "certificateAuthorities": [
+       "ca1.expert.art.com"
+      ]
+    },
+    "gallery.art.com": {
+      "mspid": "gallery-art-com",
+      "cryptoPath": "peerOrganizations/gallery.art.com/users/{username}@gallery.art.com/msp",
+      "peers": [
+        "peer1.gallery.art.com"
+      ],
+      "certificateAuthorities": [
+       "ca1.gallery.art.com"
+      ]
+    }
+  },
+  "orderers": {
+    "orderer1.art.com": {
+      "url": "grpcs://192.168.221.156:7009",
+      "grpcOptions": {
+        "ssl-target-name-override": "orderer1.art.com"
+      },
+      "tlsCACerts": {
+        "pem": "-----BEGIN CERTIFICATE-----\nMIICijCCAjCgAwIBAgIUYfD/nGusmQFsaInVNuq1QKcWBdAwCgYIKoZIzj0EAwIw\nYjELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH\nDAdSYWxlaWdoMRAwDgYDVQQKDAdhcnQuY29tMRYwFAYDVQQDDA10bHNjYS5hcnQu\nY29tMB4XDTIzMDYxNTA4NDAyMVoXDTMzMDYxMjA4NDAyMVowYjELMAkGA1UEBhMC\nVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQHDAdSYWxlaWdoMRAw\nDgYDVQQKDAdhcnQuY29tMRYwFAYDVQQDDA10bHNjYS5hcnQuY29tMFkwEwYHKoZI\nzj0CAQYIKoZIzj0DAQcDQgAEg1tkxcSChxZbq0ovRhsohFjKiThfMF26+VQw3UiM\nHx+kr6n3WcQZtT+DPSB4VB1EuSW/FKIRzA8eF/3IOqLMA6OBwzCBwDAdBgNVHQ4E\nFgQUkuOvBehUIT88Xt56D7/v73LwvfgwHwYDVR0jBBgwFoAUkuOvBehUIT88Xt56\nD7/v73LwvfgwDwYDVR0TAQH/BAUwAwEB/zAOBgNVHQ8BAf8EBAMCAaYwHQYDVR0l\nBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMD4GA1UdEQQ3MDWHBMCo3ZyCDXRsc2Nh\nLmFydC5jb22CDXRsc2NhLWFydC1jb22CCWxvY2FsaG9zdIcEfwAAATAKBggqhkjO\nPQQDAgNIADBFAiEAw/YQcAkSEvdc5JhBbMXQ+JR0N2kiCyJNeDDLR6iKpKwCIC4/\n0nc0IbHMOCU/wITVj5KYbh7sd/z8ghB1HZVnuJtj\n-----END CERTIFICATE-----"
+      }
+    },
+    "orderer2.art.com": {
+      "url": "grpcs://192.168.221.156:7010",
+      "grpcOptions": {
+        "ssl-target-name-override": "orderer2.art.com"
+      },
+      "tlsCACerts": {
+        "pem": "-----BEGIN CERTIFICATE-----\nMIICijCCAjCgAwIBAgIUYfD/nGusmQFsaInVNuq1QKcWBdAwCgYIKoZIzj0EAwIw\nYjELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH\nDAdSYWxlaWdoMRAwDgYDVQQKDAdhcnQuY29tMRYwFAYDVQQDDA10bHNjYS5hcnQu\nY29tMB4XDTIzMDYxNTA4NDAyMVoXDTMzMDYxMjA4NDAyMVowYjELMAkGA1UEBhMC\nVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQHDAdSYWxlaWdoMRAw\nDgYDVQQKDAdhcnQuY29tMRYwFAYDVQQDDA10bHNjYS5hcnQuY29tMFkwEwYHKoZI\nzj0CAQYIKoZIzj0DAQcDQgAEg1tkxcSChxZbq0ovRhsohFjKiThfMF26+VQw3UiM\nHx+kr6n3WcQZtT+DPSB4VB1EuSW/FKIRzA8eF/3IOqLMA6OBwzCBwDAdBgNVHQ4E\nFgQUkuOvBehUIT88Xt56D7/v73LwvfgwHwYDVR0jBBgwFoAUkuOvBehUIT88Xt56\nD7/v73LwvfgwDwYDVR0TAQH/BAUwAwEB/zAOBgNVHQ8BAf8EBAMCAaYwHQYDVR0l\nBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMD4GA1UdEQQ3MDWHBMCo3ZyCDXRsc2Nh\nLmFydC5jb22CDXRsc2NhLWFydC1jb22CCWxvY2FsaG9zdIcEfwAAATAKBggqhkjO\nPQQDAgNIADBFAiEAw/YQcAkSEvdc5JhBbMXQ+JR0N2kiCyJNeDDLR6iKpKwCIC4/\n0nc0IbHMOCU/wITVj5KYbh7sd/z8ghB1HZVnuJtj\n-----END CERTIFICATE-----"
+      }
+    },
+    "orderer3.art.com": {
+      "url": "grpcs://192.168.221.156:7011",
+      "grpcOptions": {
+        "ssl-target-name-override": "orderer3.art.com"
+      },
+      "tlsCACerts": {
+        "pem": "-----BEGIN CERTIFICATE-----\nMIICijCCAjCgAwIBAgIUYfD/nGusmQFsaInVNuq1QKcWBdAwCgYIKoZIzj0EAwIw\nYjELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH\nDAdSYWxlaWdoMRAwDgYDVQQKDAdhcnQuY29tMRYwFAYDVQQDDA10bHNjYS5hcnQu\nY29tMB4XDTIzMDYxNTA4NDAyMVoXDTMzMDYxMjA4NDAyMVowYjELMAkGA1UEBhMC\nVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQHDAdSYWxlaWdoMRAw\nDgYDVQQKDAdhcnQuY29tMRYwFAYDVQQDDA10bHNjYS5hcnQuY29tMFkwEwYHKoZI\nzj0CAQYIKoZIzj0DAQcDQgAEg1tkxcSChxZbq0ovRhsohFjKiThfMF26+VQw3UiM\nHx+kr6n3WcQZtT+DPSB4VB1EuSW/FKIRzA8eF/3IOqLMA6OBwzCBwDAdBgNVHQ4E\nFgQUkuOvBehUIT88Xt56D7/v73LwvfgwHwYDVR0jBBgwFoAUkuOvBehUIT88Xt56\nD7/v73LwvfgwDwYDVR0TAQH/BAUwAwEB/zAOBgNVHQ8BAf8EBAMCAaYwHQYDVR0l\nBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMD4GA1UdEQQ3MDWHBMCo3ZyCDXRsc2Nh\nLmFydC5jb22CDXRsc2NhLWFydC1jb22CCWxvY2FsaG9zdIcEfwAAATAKBggqhkjO\nPQQDAgNIADBFAiEAw/YQcAkSEvdc5JhBbMXQ+JR0N2kiCyJNeDDLR6iKpKwCIC4/\n0nc0IbHMOCU/wITVj5KYbh7sd/z8ghB1HZVnuJtj\n-----END CERTIFICATE-----"
+      }
+    }
+  },
+  "peers": {
+    "peer1.expert.art.com": {
+      "url": "grpcs://192.168.221.156:7003",
+      "grpcOptions": {
+        "ssl-target-name-override": "peer1.expert.art.com"
+      },
+      "tlsCACerts": {
+        "pem": "-----BEGIN CERTIFICATE-----\nMIICuTCCAl6gAwIBAgIURpWySw1HKjdkuuBt+SBbQEi/7oAwCgYIKoZIzj0EAwIw\ncTELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH\nDAdSYWxlaWdoMRcwFQYDVQQKDA5leHBlcnQuYXJ0LmNvbTEeMBwGA1UEAwwVdGxz\nY2ExLmV4cGVydC5hcnQuY29tMB4XDTIzMDYxNTA4NDA1NloXDTMzMDYxMjA4NDA1\nNlowcTELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYD\nVQQHDAdSYWxlaWdoMRcwFQYDVQQKDA5leHBlcnQuYXJ0LmNvbTEeMBwGA1UEAwwV\ndGxzY2ExLmV4cGVydC5hcnQuY29tMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE\nPsbdQ5Ayt+BRRanPMT0VcmsfnhnRon2pri+H/ysmtfb+AgHu3ZaX2PCfJv9ID6kW\nr4oH0ldZ7F/zikBZQ6bGVKOB0zCB0DAdBgNVHQ4EFgQUmTNtqv9FtTP5gt3DRge+\nh9TgjpYwHwYDVR0jBBgwFoAUmTNtqv9FtTP5gt3DRge+h9TgjpYwDwYDVR0TAQH/\nBAUwAwEB/zAOBgNVHQ8BAf8EBAMCAaYwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsG\nAQUFBwMCME4GA1UdEQRHMEWHBMCo3ZyCFXRsc2NhMS5leHBlcnQuYXJ0LmNvbYIV\ndGxzY2ExLWV4cGVydC1hcnQtY29tgglsb2NhbGhvc3SHBH8AAAEwCgYIKoZIzj0E\nAwIDSQAwRgIhAO4Po/Ug/iYrd15/ibk6tnbfdxc761mMgXdaVwtXxK5DAiEAryEB\nAOeKsAnOsj02akwLogdd1UDM2MWnQqRcplHp+Vs=\n-----END CERTIFICATE-----"
+      }
+    },
+    "peer1.artist.art.com": {
+      "url": "grpcs://192.168.221.156:7004",
+      "grpcOptions": {
+        "ssl-target-name-override": "peer1.artist.art.com"
+      },
+      "tlsCACerts": {
+        "pem": "-----BEGIN CERTIFICATE-----\nMIICuDCCAl6gAwIBAgIUeyazA+nopXSw54wZkj29aPQfCUAwCgYIKoZIzj0EAwIw\ncTELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH\nDAdSYWxlaWdoMRcwFQYDVQQKDA5hcnRpc3QuYXJ0LmNvbTEeMBwGA1UEAwwVdGxz\nY2ExLmFydGlzdC5hcnQuY29tMB4XDTIzMDYxNTA4NDA0M1oXDTMzMDYxMjA4NDA0\nM1owcTELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYD\nVQQHDAdSYWxlaWdoMRcwFQYDVQQKDA5hcnRpc3QuYXJ0LmNvbTEeMBwGA1UEAwwV\ndGxzY2ExLmFydGlzdC5hcnQuY29tMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE\njqckDxYt9u/hXLKDQiyDCIQwdHn3uD9i6a8sAA9PGtBPr7MvS7oWYZ0fzdqGVN5T\nCO601LXIMC2VzEoX2Rvg4qOB0zCB0DAdBgNVHQ4EFgQUNJn7ta+ybgTtkXmYZY++\n1oLHhLMwHwYDVR0jBBgwFoAUNJn7ta+ybgTtkXmYZY++1oLHhLMwDwYDVR0TAQH/\nBAUwAwEB/zAOBgNVHQ8BAf8EBAMCAaYwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsG\nAQUFBwMCME4GA1UdEQRHMEWHBMCo3ZyCFXRsc2NhMS5hcnRpc3QuYXJ0LmNvbYIV\ndGxzY2ExLWFydGlzdC1hcnQtY29tgglsb2NhbGhvc3SHBH8AAAEwCgYIKoZIzj0E\nAwIDSAAwRQIhAJuPnFfrOiaNH3lLf88KkPiamd1c/9lHzkyW6wsbD3NtAiBKimym\nELjFguz8PzsG8w6TMhOlHuxI6gBVc3LmTJZxhw==\n-----END CERTIFICATE-----"
+      }
+    },
+    "peer1.gallery.art.com": {
+      "url": "grpcs://192.168.221.156:7005",
+      "grpcOptions": {
+        "ssl-target-name-override": "peer1.gallery.art.com"
+      },
+      "tlsCACerts": {
+        "pem": "-----BEGIN CERTIFICATE-----\nMIICvzCCAmSgAwIBAgIULv6QFz6HQcsmAsv/WbmjP2BUpBIwCgYIKoZIzj0EAwIw\nczELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH\nDAdSYWxlaWdoMRgwFgYDVQQKDA9nYWxsZXJ5LmFydC5jb20xHzAdBgNVBAMMFnRs\nc2NhMS5nYWxsZXJ5LmFydC5jb20wHhcNMjMwNjE1MDg0MTA5WhcNMzMwNjEyMDg0\nMTA5WjBzMQswCQYDVQQGEwJVUzEXMBUGA1UECAwOTm9ydGggQ2Fyb2xpbmExEDAO\nBgNVBAcMB1JhbGVpZ2gxGDAWBgNVBAoMD2dhbGxlcnkuYXJ0LmNvbTEfMB0GA1UE\nAwwWdGxzY2ExLmdhbGxlcnkuYXJ0LmNvbTBZMBMGByqGSM49AgEGCCqGSM49AwEH\nA0IABJbCaG45idXUq5XHmZwc143VO0mzZKQZu5ZY+s9e4JzHcQOTlRziVPCYczjs\n+BryqY+bA1Kbtsnfa6anArmHtRqjgdUwgdIwHQYDVR0OBBYEFBpSEG89DJzW9EDA\nhrAu0HzbRLqkMB8GA1UdIwQYMBaAFBpSEG89DJzW9EDAhrAu0HzbRLqkMA8GA1Ud\nEwEB/wQFMAMBAf8wDgYDVR0PAQH/BAQDAgGmMB0GA1UdJQQWMBQGCCsGAQUFBwMB\nBggrBgEFBQcDAjBQBgNVHREESTBHhwTAqN2cghZ0bHNjYTEuZ2FsbGVyeS5hcnQu\nY29tghZ0bHNjYTEtZ2FsbGVyeS1hcnQtY29tgglsb2NhbGhvc3SHBH8AAAEwCgYI\nKoZIzj0EAwIDSQAwRgIhAJR11W//htNUmRrDsV4fWG/KMuhmaml8HFh3GOvIfwN+\nAiEAxlz0LC6LydFRK745/HvfAogUOXcwMF6MVrhBdRwEHTo=\n-----END CERTIFICATE-----"
+      }
+    }
+  },
+  "certificateAuthorities": {
+    "ca1.expert.art.com": {
+      "url": "https://192.168.221.156:7000",
+      "tlsCACerts": {
+        "pem": ["-----BEGIN CERTIFICATE-----\nMIICrDCCAlKgAwIBAgIUCzcKejPJ1i2TFJDua2KmO9AK3nAwCgYIKoZIzj0EAwIw\nbjELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH\nDAdSYWxlaWdoMRcwFQYDVQQKDA5leHBlcnQuYXJ0LmNvbTEbMBkGA1UEAwwSY2Ex\nLmV4cGVydC5hcnQuY29tMB4XDTIzMDYxNTA4NDA1NloXDTMzMDYxMjA4NDA1Nlow\nbjELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH\nDAdSYWxlaWdoMRcwFQYDVQQKDA5leHBlcnQuYXJ0LmNvbTEbMBkGA1UEAwwSY2Ex\nLmV4cGVydC5hcnQuY29tMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAER+OdKB9e\n3WW6crOJwI9MB4Vyp7iwG8b/TU0mr+E9eqNMDWpviHCFNxQfKX4nQ4oPQuXYb1xX\nFNkX23gZ0WUUhqOBzTCByjAdBgNVHQ4EFgQUwH4eYmRmkEV2z37EplDtHFPyKGEw\nHwYDVR0jBBgwFoAUwH4eYmRmkEV2z37EplDtHFPyKGEwDwYDVR0TAQH/BAUwAwEB\n/zAOBgNVHQ8BAf8EBAMCAaYwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMC\nMEgGA1UdEQRBMD+HBMCo3ZyCEmNhMS5leHBlcnQuYXJ0LmNvbYISY2ExLWV4cGVy\ndC1hcnQtY29tgglsb2NhbGhvc3SHBH8AAAEwCgYIKoZIzj0EAwIDSAAwRQIgddmC\ns9QygboOgHCQZbXwr6mvl8oesANFzwZDvhU/08MCIQD16GrMQ/3hHclY0zcFUwsU\nSsKFSLDMzyoWhP1jGztXOw==\n-----END CERTIFICATE-----"]
+      },
+      "httpOptions": { "verify": "false" },
+      "caName": "ca1",
+      "registrar": { "enrollId": "admin", "enrollSecret": "adminpw" }
+    },
+    "ca1.artist.art.com": {
+      "url": "https://192.168.221.156:7001",
+      "tlsCACerts": {
+        "pem": ["-----BEGIN CERTIFICATE-----\nMIICrDCCAlKgAwIBAgIUWEV/Fw0C1F6qcU7zglcU7bVRjs0wCgYIKoZIzj0EAwIw\nbjELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH\nDAdSYWxlaWdoMRcwFQYDVQQKDA5hcnRpc3QuYXJ0LmNvbTEbMBkGA1UEAwwSY2Ex\nLmFydGlzdC5hcnQuY29tMB4XDTIzMDYxNTA4NDA0M1oXDTMzMDYxMjA4NDA0M1ow\nbjELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH\nDAdSYWxlaWdoMRcwFQYDVQQKDA5hcnRpc3QuYXJ0LmNvbTEbMBkGA1UEAwwSY2Ex\nLmFydGlzdC5hcnQuY29tMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAENQzuEaJF\nZkF1I3SgkK/sx3tTjI4KXDy+Ocvr8yHIkE6keYDLqbPbXE+Dief7AQ9Cdb2j27EC\neuk96sZCuZDqKqOBzTCByjAdBgNVHQ4EFgQUx4XLNrBRaFnCH+SFzMvAgSLmXJQw\nHwYDVR0jBBgwFoAUx4XLNrBRaFnCH+SFzMvAgSLmXJQwDwYDVR0TAQH/BAUwAwEB\n/zAOBgNVHQ8BAf8EBAMCAaYwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMC\nMEgGA1UdEQRBMD+HBMCo3ZyCEmNhMS5hcnRpc3QuYXJ0LmNvbYISY2ExLWFydGlz\ndC1hcnQtY29tgglsb2NhbGhvc3SHBH8AAAEwCgYIKoZIzj0EAwIDSAAwRQIgEcFR\nwMKUtHWGGJo/XDPPq9Vr9hgVCzrQtVTAHVgCr6gCIQCEy53DkFMfpmN90jBSkksJ\ncJFj+CyZrOfZjzhpxn0xgA==\n-----END CERTIFICATE-----"]
+      },
+      "httpOptions": { "verify": "false" },
+      "caName": "ca1",
+      "registrar": { "enrollId": "admin", "enrollSecret": "adminpw" }
+    },
+    "ca1.gallery.art.com": {
+      "url": "https://192.168.221.156:7002",
+      "tlsCACerts": {
+        "pem": ["-----BEGIN CERTIFICATE-----\nMIICszCCAligAwIBAgIUKgCEgO9OTavjegQxobadam4K4KIwCgYIKoZIzj0EAwIw\ncDELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH\nDAdSYWxlaWdoMRgwFgYDVQQKDA9nYWxsZXJ5LmFydC5jb20xHDAaBgNVBAMME2Nh\nMS5nYWxsZXJ5LmFydC5jb20wHhcNMjMwNjE1MDg0MTA5WhcNMzMwNjEyMDg0MTA5\nWjBwMQswCQYDVQQGEwJVUzEXMBUGA1UECAwOTm9ydGggQ2Fyb2xpbmExEDAOBgNV\nBAcMB1JhbGVpZ2gxGDAWBgNVBAoMD2dhbGxlcnkuYXJ0LmNvbTEcMBoGA1UEAwwT\nY2ExLmdhbGxlcnkuYXJ0LmNvbTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJk2\nAboQRxpy5DDbH1xKfHqwRUF6LCfS9lNsREnADsboJ+4Qn/7BuXw6HF0BxlREK6wK\nl0EMZQyZM5onqz7w21ijgc8wgcwwHQYDVR0OBBYEFLWlOrCfu2Dx3mUnhuy6VpJZ\naQLkMB8GA1UdIwQYMBaAFLWlOrCfu2Dx3mUnhuy6VpJZaQLkMA8GA1UdEwEB/wQF\nMAMBAf8wDgYDVR0PAQH/BAQDAgGmMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEF\nBQcDAjBKBgNVHREEQzBBhwTAqN2cghNjYTEuZ2FsbGVyeS5hcnQuY29tghNjYTEt\nZ2FsbGVyeS1hcnQtY29tgglsb2NhbGhvc3SHBH8AAAEwCgYIKoZIzj0EAwIDSQAw\nRgIhAPHnd1SFrrOa08YBLkmCWI46Y330tjZTHGU5JNmig0FBAiEAwLG3/wTZt9lO\np7Axr+kcOxPdSw7O1Y9EVy98rh3ZsTw=\n-----END CERTIFICATE-----"]
+      },
+      "httpOptions": { "verify": "false" },
+      "caName": "ca1",
+      "registrar": { "enrollId": "admin", "enrollSecret": "adminpw" }
+    }
+  },
+  "entityMatchers": {
+    "orderer": [
+      { "mappedHost": "orderer1.art.com",
+        "pattern": "(\\w*)orderer1.art.com(\\w*)",
+        "sslTargetOverrideUrlSubstitutionExp": "orderer1.art.com",
+        "urlSubstitutionExp": "192.168.221.156:7009"
+      },
+      { "mappedHost": "orderer2.art.com",
+        "pattern": "(\\w*)orderer2.art.com(\\w*)",
+        "sslTargetOverrideUrlSubstitutionExp": "orderer2.art.com",
+        "urlSubstitutionExp": "192.168.221.156:7010"
+      },
+      { "mappedHost": "orderer3.art.com",
+        "pattern": "(\\w*)orderer3.art.com(\\w*)",
+        "sslTargetOverrideUrlSubstitutionExp": "orderer3.art.com",
+        "urlSubstitutionExp": "192.168.221.156:7011"
+      }
+    ],
+    "peer": [
+      { "mappedHost": "peer1.expert.art.com",
+        "pattern": "(\\w*)peer1.expert.art.com(\\w*)",
+        "sslTargetOverrideUrlSubstitutionExp": "peer1.expert.art.com",
+        "urlSubstitutionExp": "192.168.221.156:7003"
+      },
+      { "mappedHost": "peer1.artist.art.com",
+        "pattern": "(\\w*)peer1.artist.art.com(\\w*)",
+        "sslTargetOverrideUrlSubstitutionExp": "peer1.artist.art.com",
+        "urlSubstitutionExp": "192.168.221.156:7004"
+      },
+      { "mappedHost": "peer1.gallery.art.com",
+        "pattern": "(\\w*)peer1.gallery.art.com(\\w*)",
+        "sslTargetOverrideUrlSubstitutionExp": "peer1.gallery.art.com",
+        "urlSubstitutionExp": "192.168.221.156:7005"
+      }
+    ],
+  "certificateAuthorities": [
+      { "mappedHost": "ca1.expert.art.com",
+        "pattern": "(\\w*)ca1.expert.art.com(\\w*)",
+        "sslTargetOverrideUrlSubstitutionExp": "ca1.expert.art.com",
+        "urlSubstitutionExp": "192.168.221.156:7000"
+      },
+      { "mappedHost": "ca1.artist.art.com",
+        "pattern": "(\\w*)ca1.artist.art.com(\\w*)",
+        "sslTargetOverrideUrlSubstitutionExp": "ca1.artist.art.com",
+        "urlSubstitutionExp": "192.168.221.156:7001"
+      },
+      { "mappedHost": "ca1.gallery.art.com",
+        "pattern": "(\\w*)ca1.gallery.art.com(\\w*)",
+        "sslTargetOverrideUrlSubstitutionExp": "ca1.gallery.art.com",
+        "urlSubstitutionExp": "192.168.221.156:7002"
+      }
+    ]
+  }
+}

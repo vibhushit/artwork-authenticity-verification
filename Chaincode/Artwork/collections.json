@@ -1,0 +1,10 @@
+[
+    {
+      "name": "CollectionPainting",
+      "policy": "OR('artist-art-com.member', 'gallery-art-com.member')",
+      "requiredPeerCount": 1,
+      "maxPeerCount": 1,
+      "blockToLive": 1000000,
+      "memberOnlyRead": true
+    }
+  ]

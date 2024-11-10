@@ -1,0 +1,160 @@
+{
+  "name": "fabric-network",
+  "description": "Generated network configuration file",
+  "version": "0.1",
+  "client": {
+    "organization": "expert.art.com",
+    "credentialStore": {
+      "path": "/tmp/hfc-kvs",
+      "cryptoStore": {
+        "path": "/tmp/hfc-cvs"
+      },
+      "wallet": "wallet-name"
+    }
+  },
+  "organizations": {
+    "art.com": {
+      "mspid": "art-com",
+      "orderers": [
+        "orderer1.art.com",
+        "orderer2.art.com",
+        "orderer3.art.com"
+      ],
+      "users": {
+        "Admin": {
+          "cert": "/keyfiles/ordererOrganizations/art.com/users/Admin@art.com/msp/signcerts/Admin@art.com-cert.pem",
+          "private_key": "/keyfiles/ordererOrganizations/art.com/users/Admin@art.com/msp/keystore/priv_sk"
+        }
+      }
+    },
+    "artist.art.com": {
+      "mspid": "artist-art-com",
+      "peers": [
+        "peer1.artist.art.com"
+      ],
+      "users": {
+        "Admin": {
+          "cert": "/keyfiles/peerOrganizations/artist.art.com/users/Admin@artist.art.com/msp/signcerts/Admin@artist.art.com-cert.pem",
+          "private_key": "/keyfiles/peerOrganizations/artist.art.com/users/Admin@artist.art.com/msp/keystore/priv_sk"
+        }
+      }
+    },
+    "expert.art.com": {
+      "mspid": "expert-art-com",
+      "peers": [
+        "peer1.expert.art.com"
+      ],
+      "users": {
+        "Admin": {
+          "cert": "/keyfiles/peerOrganizations/expert.art.com/users/Admin@expert.art.com/msp/signcerts/Admin@expert.art.com-cert.pem",
+          "private_key": "/keyfiles/peerOrganizations/expert.art.com/users/Admin@expert.art.com/msp/keystore/priv_sk"
+        }
+      }
+    },
+    "gallery.art.com": {
+      "mspid": "gallery-art-com",
+      "peers": [
+        "peer1.gallery.art.com"
+      ],
+      "users": {
+        "Admin": {
+          "cert": "/keyfiles/peerOrganizations/gallery.art.com/users/Admin@gallery.art.com/msp/signcerts/Admin@gallery.art.com-cert.pem",
+          "private_key": "/keyfiles/peerOrganizations/gallery.art.com/users/Admin@gallery.art.com/msp/keystore/priv_sk"
+        }
+      }
+    }
+  },
+  "orderers": {
+    "orderer1.art.com": {
+      "url": "192.168.221.156:7009",
+      "grpcOptions": {
+        "grpc.ssl_target_name_override": "orderer1.art.com",
+        "grpc-max-send-message-length": 15
+      },
+      "tlsCACerts": {
+        "path": "/keyfiles/ordererOrganizations/art.com/orderers/orderer1.art.com/tls/ca.crt"
+      }
+    },
+    "orderer2.art.com": {
+      "url": "192.168.221.156:7010",
+      "grpcOptions": {
+        "grpc.ssl_target_name_override": "orderer2.art.com",
+        "grpc-max-send-message-length": 15
+      },
+      "tlsCACerts": {
+        "path": "/keyfiles/ordererOrganizations/art.com/orderers/orderer2.art.com/tls/ca.crt"
+      }
+    },
+    "orderer3.art.com": {
+      "url": "192.168.221.156:7011",
+      "grpcOptions": {
+        "grpc.ssl_target_name_override": "orderer3.art.com",
+        "grpc-max-send-message-length": 15
+      },
+      "tlsCACerts": {
+        "path": "/keyfiles/ordererOrganizations/art.com/orderers/orderer3.art.com/tls/ca.crt"
+      }
+    }
+  },
+  "peers": {
+    "peer1.expert.art.com": {
+      "url": "192.168.221.156:7003",
+      "grpcOptions": {
+        "grpc.ssl_target_name_override": "peer1.expert.art.com",
+        "grpc-max-send-message-length": 15
+      },
+      "tlsCACerts": {
+        "path": "/keyfiles/peerOrganizations/expert.art.com/peers/peer1.expert.art.com/tls/ca.crt"
+      }
+    },
+    "peer1.artist.art.com": {
+      "url": "192.168.221.156:7004",
+      "grpcOptions": {
+        "grpc.ssl_target_name_override": "peer1.artist.art.com",
+        "grpc-max-send-message-length": 15
+      },
+      "tlsCACerts": {
+        "path": "/keyfiles/peerOrganizations/artist.art.com/peers/peer1.artist.art.com/tls/ca.crt"
+      }
+    },
+    "peer1.gallery.art.com": {
+      "url": "192.168.221.156:7005",
+      "grpcOptions": {
+        "grpc.ssl_target_name_override": "peer1.gallery.art.com",
+        "grpc-max-send-message-length": 15
+      },
+      "tlsCACerts": {
+        "path": "/keyfiles/peerOrganizations/gallery.art.com/peers/peer1.gallery.art.com/tls/ca.crt"
+      }
+    }
+  },
+  "certificateAuthorities": {
+    "ca1.expert.art.com": {
+      "url": "https://192.168.221.156:7000",
+      "tlsCACerts": {
+        "path": "/keyfiles/peerOrganizations/expert.art.com/ca/ca1.expert.art.com-cert.pem"
+      },
+      "httpOptions": { "verify": "false" },
+      "caName": "ca1",
+      "registrar": { "enrollId": "admin", "enrollSecret": "adminpw" }
+    },
+    "ca1.artist.art.com": {
+      "url": "https://192.168.221.156:7001",
+      "tlsCACerts": {
+        "path": "/keyfiles/peerOrganizations/artist.art.com/ca/ca1.artist.art.com-cert.pem"
+      },
+      "httpOptions": { "verify": "false" },
+      "caName": "ca1",
+      "registrar": { "enrollId": "admin", "enrollSecret": "adminpw" }
+    },
+    "ca1.gallery.art.com": {
+      "url": "https://192.168.221.156:7002",
+      "tlsCACerts": {
+        "path": "/keyfiles/peerOrganizations/gallery.art.com/ca/ca1.gallery.art.com-cert.pem"
+      },
+      "httpOptions": { "verify": "false" },
+      "caName": "ca1",
+      "registrar": { "enrollId": "admin", "enrollSecret": "adminpw" }
+    }
+  }
+}

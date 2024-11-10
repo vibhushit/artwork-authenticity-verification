@@ -1,0 +1,44 @@
+[
+    {
+        "transactionName": "paintingExists",
+        "transactionLabel": "A test paintingExists transaction",
+        "arguments": [
+            "001"
+        ],
+        "transientData": {}
+    },
+    {
+        "transactionName": "createPainting",
+        "transactionLabel": "A test createPainting transaction",
+        "arguments": [
+            "001",
+            "some value"
+        ],
+        "transientData": {}
+    },
+    {
+        "transactionName": "readPainting",
+        "transactionLabel": "A test readPainting transaction",
+        "arguments": [
+            "001"
+        ],
+        "transientData": {}
+    },
+    {
+        "transactionName": "updatePainting",
+        "transactionLabel": "A test updatePainting transaction",
+        "arguments": [
+            "001",
+            "some other value"
+        ],
+        "transientData": {}
+    },
+    {
+        "transactionName": "deletePainting",
+        "transactionLabel": "A test deletePainting transaction",
+        "arguments": [
+            "001"
+        ],
+        "transientData": {}
+    }
+]

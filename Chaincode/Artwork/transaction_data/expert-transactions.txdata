@@ -1,0 +1,44 @@
+[
+    {
+        "transactionName": "expertExists",
+        "transactionLabel": "A test expertExists transaction",
+        "arguments": [
+            "001"
+        ],
+        "transientData": {}
+    },
+    {
+        "transactionName": "createExpert",
+        "transactionLabel": "A test createExpert transaction",
+        "arguments": [
+            "001",
+            "some value"
+        ],
+        "transientData": {}
+    },
+    {
+        "transactionName": "readExpert",
+        "transactionLabel": "A test readExpert transaction",
+        "arguments": [
+            "001"
+        ],
+        "transientData": {}
+    },
+    {
+        "transactionName": "updateExpert",
+        "transactionLabel": "A test updateExpert transaction",
+        "arguments": [
+            "001",
+            "some other value"
+        ],
+        "transientData": {}
+    },
+    {
+        "transactionName": "deleteExpert",
+        "transactionLabel": "A test deleteExpert transaction",
+        "arguments": [
+            "001"
+        ],
+        "transientData": {}
+    }
+]
